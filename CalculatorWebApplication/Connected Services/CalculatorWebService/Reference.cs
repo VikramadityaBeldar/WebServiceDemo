@@ -24,11 +24,19 @@ namespace CalculatorWebApplication.CalculatorWebService {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://vikramtech.com/", ConfigurationName="CalculatorWebService.CalculatorWebServiceSoap")]
     public interface CalculatorWebServiceSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add", ReplyAction="*")]
-        int Add(int firstNumber, int secondNumber);
+        // CODEGEN: Generating message contract since the wrapper name (Add2Numbers) of message Add2Numbers does not match the default value (Add)
+        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add2Numbers", ReplyAction="*")]
+        CalculatorWebApplication.CalculatorWebService.Add2Numbers1 Add(CalculatorWebApplication.CalculatorWebService.Add2Numbers request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add", ReplyAction="*")]
-        System.Threading.Tasks.Task<int> AddAsync(int firstNumber, int secondNumber);
+        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add2Numbers", ReplyAction="*")]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add2Numbers1> AddAsync(CalculatorWebApplication.CalculatorWebService.Add2Numbers request);
+        
+        // CODEGEN: Generating message contract since the wrapper name (Add3Numbers) of message Add3Numbers does not match the default value (Add1)
+        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add3Numbers", ReplyAction="*")]
+        CalculatorWebApplication.CalculatorWebService.Add3Numbers1 Add1(CalculatorWebApplication.CalculatorWebService.Add3Numbers request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/Add3Numbers", ReplyAction="*")]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add3Numbers1> Add1Async(CalculatorWebApplication.CalculatorWebService.Add3Numbers request);
         
         // CODEGEN: Generating message contract since element name GetCalculationsResult from namespace http://vikramtech.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/GetCalculations", ReplyAction="*")]
@@ -36,6 +44,86 @@ namespace CalculatorWebApplication.CalculatorWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://vikramtech.com/GetCalculations", ReplyAction="*")]
         System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.GetCalculationsResponse> GetCalculationsAsync(CalculatorWebApplication.CalculatorWebService.GetCalculationsRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Add2Numbers", WrapperNamespace="http://vikramtech.com/", IsWrapped=true)]
+    public partial class Add2Numbers {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=0)]
+        public int firstNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=1)]
+        public int secondNumber;
+        
+        public Add2Numbers() {
+        }
+        
+        public Add2Numbers(int firstNumber, int secondNumber) {
+            this.firstNumber = firstNumber;
+            this.secondNumber = secondNumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Add2NumbersResponse", WrapperNamespace="http://vikramtech.com/", IsWrapped=true)]
+    public partial class Add2Numbers1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=0)]
+        public int Add2NumbersResult;
+        
+        public Add2Numbers1() {
+        }
+        
+        public Add2Numbers1(int Add2NumbersResult) {
+            this.Add2NumbersResult = Add2NumbersResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Add3Numbers", WrapperNamespace="http://vikramtech.com/", IsWrapped=true)]
+    public partial class Add3Numbers {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=0)]
+        public int firstNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=1)]
+        public int secondNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=2)]
+        public int thirdNumber;
+        
+        public Add3Numbers() {
+        }
+        
+        public Add3Numbers(int firstNumber, int secondNumber, int thirdNumber) {
+            this.firstNumber = firstNumber;
+            this.secondNumber = secondNumber;
+            this.thirdNumber = thirdNumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Add3NumbersResponse", WrapperNamespace="http://vikramtech.com/", IsWrapped=true)]
+    public partial class Add3Numbers1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://vikramtech.com/", Order=0)]
+        public int Add3NumbersResult;
+        
+        public Add3Numbers1() {
+        }
+        
+        public Add3Numbers1(int Add3NumbersResult) {
+            this.Add3NumbersResult = Add3NumbersResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -126,12 +214,56 @@ namespace CalculatorWebApplication.CalculatorWebService {
                 base(binding, remoteAddress) {
         }
         
-        public int Add(int firstNumber, int secondNumber) {
-            return base.Channel.Add(firstNumber, secondNumber);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CalculatorWebApplication.CalculatorWebService.Add2Numbers1 CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap.Add(CalculatorWebApplication.CalculatorWebService.Add2Numbers request) {
+            return base.Channel.Add(request);
         }
         
-        public System.Threading.Tasks.Task<int> AddAsync(int firstNumber, int secondNumber) {
-            return base.Channel.AddAsync(firstNumber, secondNumber);
+        public int Add(int firstNumber, int secondNumber) {
+            CalculatorWebApplication.CalculatorWebService.Add2Numbers inValue = new CalculatorWebApplication.CalculatorWebService.Add2Numbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            CalculatorWebApplication.CalculatorWebService.Add2Numbers1 retVal = ((CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap)(this)).Add(inValue);
+            return retVal.Add2NumbersResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add2Numbers1> CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap.AddAsync(CalculatorWebApplication.CalculatorWebService.Add2Numbers request) {
+            return base.Channel.AddAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add2Numbers1> AddAsync(int firstNumber, int secondNumber) {
+            CalculatorWebApplication.CalculatorWebService.Add2Numbers inValue = new CalculatorWebApplication.CalculatorWebService.Add2Numbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            return ((CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap)(this)).AddAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CalculatorWebApplication.CalculatorWebService.Add3Numbers1 CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap.Add1(CalculatorWebApplication.CalculatorWebService.Add3Numbers request) {
+            return base.Channel.Add1(request);
+        }
+        
+        public int Add1(int firstNumber, int secondNumber, int thirdNumber) {
+            CalculatorWebApplication.CalculatorWebService.Add3Numbers inValue = new CalculatorWebApplication.CalculatorWebService.Add3Numbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            inValue.thirdNumber = thirdNumber;
+            CalculatorWebApplication.CalculatorWebService.Add3Numbers1 retVal = ((CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap)(this)).Add1(inValue);
+            return retVal.Add3NumbersResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add3Numbers1> CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap.Add1Async(CalculatorWebApplication.CalculatorWebService.Add3Numbers request) {
+            return base.Channel.Add1Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorWebService.Add3Numbers1> Add1Async(int firstNumber, int secondNumber, int thirdNumber) {
+            CalculatorWebApplication.CalculatorWebService.Add3Numbers inValue = new CalculatorWebApplication.CalculatorWebService.Add3Numbers();
+            inValue.firstNumber = firstNumber;
+            inValue.secondNumber = secondNumber;
+            inValue.thirdNumber = thirdNumber;
+            return ((CalculatorWebApplication.CalculatorWebService.CalculatorWebServiceSoap)(this)).Add1Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

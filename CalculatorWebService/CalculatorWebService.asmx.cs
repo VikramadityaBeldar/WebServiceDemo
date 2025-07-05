@@ -11,14 +11,15 @@ namespace CalculatorWebService
     /// Summary description for CalculatorWebService
     /// </summary>
     [WebService(Namespace = "http://vikramtech.com/")]
-    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    //[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]  //Need to remove(Use Below) this when method overloading
+    [WebServiceBinding(ConformsTo = WsiProfiles.None)] //WsiProfiles set to None
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
     public class CalculatorWebService : System.Web.Services.WebService
     {
 
-        [WebMethod(EnableSession = true, Description ="This will add two numbers", CacheDuration = 5)]
+        [WebMethod(EnableSession = true, MessageName = "Add2Numbers", Description = "This will add two numbers", CacheDuration = 5)]
         public int Add(int firstNumber, int secondNumber)
         {
             List<string> calculations = Session["calculations"] as List<string> ?? new List<string>();
@@ -26,6 +27,21 @@ namespace CalculatorWebService
             int result = firstNumber + secondNumber;
 
             calculations.Add($"{firstNumber} + {secondNumber} = {result}");
+            Session["calculations"] = calculations;
+
+            calculations = Session["calculations"] as List<string>;
+
+            return result;
+        }
+        //Method Overloading
+        [WebMethod(EnableSession = true, MessageName ="Add3Numbers", Description = "This will add three numbers", CacheDuration = 5)]
+        public int Add(int firstNumber, int secondNumber, int thirdNumber)
+        {
+            List<string> calculations = Session["calculations"] as List<string> ?? new List<string>();
+
+            int result = firstNumber + secondNumber + thirdNumber;
+
+            calculations.Add($"{firstNumber} + {secondNumber} + {thirdNumber} = {result}");
             Session["calculations"] = calculations;
 
             calculations = Session["calculations"] as List<string>;

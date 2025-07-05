@@ -75,6 +75,12 @@
     <Content Include="Connected Services\CalculatorWebService\CalculatorWebApplication.CalculatorWebService.GetCalculationsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\CalculatorWebService\CalculatorWebApplication.CalculatorWebService.Add2Numbers1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\CalculatorWebService\CalculatorWebApplication.CalculatorWebService.Add3Numbers1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\CalculatorWebService\CalculatorWebService.disco" />
     <None Include="Connected Services\CalculatorWebService\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorWebService\configuration.svcinfo" />

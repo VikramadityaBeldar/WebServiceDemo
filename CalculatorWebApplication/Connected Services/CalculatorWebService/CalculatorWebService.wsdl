@@ -2,7 +2,7 @@
 <wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://vikramtech.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://vikramtech.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://vikramtech.com/">
-      <s:element name="Add">
+      <s:element name="Add2Numbers">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
@@ -10,10 +10,26 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="AddResponse">
+      <s:element name="Add2NumbersResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="AddResult" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Add2NumbersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add3Numbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="thirdNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add3NumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Add3NumbersResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -34,11 +50,17 @@
       </s:complexType>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="AddSoapIn">
-    <wsdl:part name="parameters" element="tns:Add" />
+  <wsdl:message name="Add2NumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:Add2Numbers" />
   </wsdl:message>
-  <wsdl:message name="AddSoapOut">
-    <wsdl:part name="parameters" element="tns:AddResponse" />
+  <wsdl:message name="Add2NumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:Add2NumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add3NumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:Add3Numbers" />
+  </wsdl:message>
+  <wsdl:message name="Add3NumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:Add3NumbersResponse" />
   </wsdl:message>
   <wsdl:message name="GetCalculationsSoapIn">
     <wsdl:part name="parameters" element="tns:GetCalculations" />
@@ -49,8 +71,13 @@
   <wsdl:portType name="CalculatorWebServiceSoap">
     <wsdl:operation name="Add">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will add two numbers</wsdl:documentation>
-      <wsdl:input message="tns:AddSoapIn" />
-      <wsdl:output message="tns:AddSoapOut" />
+      <wsdl:input name="Add2Numbers" message="tns:Add2NumbersSoapIn" />
+      <wsdl:output name="Add2Numbers" message="tns:Add2NumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will add three numbers</wsdl:documentation>
+      <wsdl:input name="Add3Numbers" message="tns:Add3NumbersSoapIn" />
+      <wsdl:output name="Add3Numbers" message="tns:Add3NumbersSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCalculations">
       <wsdl:input message="tns:GetCalculationsSoapIn" />
@@ -60,11 +87,20 @@
   <wsdl:binding name="CalculatorWebServiceSoap" type="tns:CalculatorWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Add">
-      <soap:operation soapAction="http://vikramtech.com/Add" style="document" />
-      <wsdl:input>
+      <soap:operation soapAction="http://vikramtech.com/Add2Numbers" style="document" />
+      <wsdl:input name="Add2Numbers">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+      <wsdl:output name="Add2Numbers">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://vikramtech.com/Add3Numbers" style="document" />
+      <wsdl:input name="Add3Numbers">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add3Numbers">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -81,11 +117,20 @@
   <wsdl:binding name="CalculatorWebServiceSoap12" type="tns:CalculatorWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Add">
-      <soap12:operation soapAction="http://vikramtech.com/Add" style="document" />
-      <wsdl:input>
+      <soap12:operation soapAction="http://vikramtech.com/Add2Numbers" style="document" />
+      <wsdl:input name="Add2Numbers">
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
+      <wsdl:output name="Add2Numbers">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://vikramtech.com/Add3Numbers" style="document" />
+      <wsdl:input name="Add3Numbers">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Add3Numbers">
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
