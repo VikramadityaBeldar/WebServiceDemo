@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorWebApplication", 
 		{BA161B5F-EAE1-4F46-8A52-AB4D6FC3E8B2} = {BA161B5F-EAE1-4F46-8A52-AB4D6FC3E8B2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentWebApplication", "StudentWebApplication\StudentWebApplication.csproj", "{D32A3B01-DA1E-4C49-BACB-73B6A06331AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{8B631BCE-DC05-473D-93CB-5050874230FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B631BCE-DC05-473D-93CB-5050874230FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B631BCE-DC05-473D-93CB-5050874230FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32A3B01-DA1E-4C49-BACB-73B6A06331AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32A3B01-DA1E-4C49-BACB-73B6A06331AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32A3B01-DA1E-4C49-BACB-73B6A06331AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32A3B01-DA1E-4C49-BACB-73B6A06331AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
