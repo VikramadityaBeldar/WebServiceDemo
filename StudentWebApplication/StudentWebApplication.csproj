@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PresentationLayer\StudentForm.aspx" />
-    <Content Include="PresentationLayer\StudentWebService.asmx" />
+    <Content Include="ServiceLayer\StudentWebService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +92,7 @@
     <Compile Include="RepositoryLayer\IStudentRepository.cs" />
     <Compile Include="RepositoryLayer\StudentRepository.cs" />
     <Compile Include="ServiceLayer\StudentService.cs" />
-    <Compile Include="PresentationLayer\StudentWebService.asmx.cs">
+    <Compile Include="ServiceLayer\StudentWebService.asmx.cs">
       <DependentUpon>StudentWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
